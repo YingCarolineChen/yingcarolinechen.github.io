@@ -7,7 +7,7 @@ navbar:
       href: about.html
     - text: "Resume"
       icon: fa-user-circle-o
-      href: resume.html
+      href: Resume.html
     - text: "Plotly"
       icon: fa-bar-chart
       href: dashboard.html
