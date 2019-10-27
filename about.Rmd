@@ -1,12 +1,9 @@
----
-title: "Ying's Awesome Website"
----
 
-<center><img src = "image/LION.JPG" style = "width:60%"> </center>
+<center><img src = "image/LION.JPG" style = "width:100%"> </center>
 
 <br />
 
-<center><span style="color:#2C85C2; font-family: Babas; font-size: 2em;">HEALTH IS A HUMAN RIGHT</span></center>
+<center><span style="color:#2C85C2; font-family: Babas; font-size: 4em;">HEALTH IS A HUMAN RIGHT</span></center>
 
 <br/>
 
