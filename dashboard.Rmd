@@ -7,11 +7,36 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library(flexdashboard)
 library(tidyverse)
-library(viridis)
+library (dplyr)
 library(p8105.datasets)
+library(flexdashboard)
+library(viridis)
 library(plotly)
+library(patchwork)
+
+
+rm(list = ls())
+
+knitr::opts_chunk$set(
+    echo = TRUE,
+    warning = FALSE,
+    fig.width = 10, 
+  fig.height = 8,
+  out.width = "100%"
+)
+
+scale_colour_discrete = scale_colour_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+theme_set(theme_minimal() + theme(legend.position = "bottom"))
+
+options(tibble.print_min = 3)
 ```
 
 ```{r load_dataset}
@@ -26,52 +51,36 @@ noaa = p8105.datasets::ny_noaa %>%
          year = as.integer(year),
          month = as.integer(month),
          day = as.integer(day)) 
+head(noaa,3)
 ```
 
 
 
-Column {data-width=500}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
+Scatter plot: 
 
-```{r tmax_vs_tmin, fig.width = 4, fig.height = 4}
-temp_plot = noaa %>% 
-  ggplot(aes(x = tmax, y = tmin)) +
-  geom_hex() +
-  labs(
-    y = "Minimum Temperature(ºC)", 
-    x = "Maximum Temperature(ºC)",
-    title = "Max Temperatures VS Min Temperatures in New York",
-    caption = "Data from NOAA"
-  ) +
-  viridis::scale_fill_viridis(option = "plasma") +
-  theme_bw() +
-  theme(legend.position = "bottom", 
-        legend.key.width = unit(0.8, "in"))
-ggplotly(temp_plot)
+```{r}
+scatter_plot = noaa %>% 
+  filter(year == 2005:2010)
+
+scatter_plot %>% 
+  plot_ly(x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
+          color = ~year, alpha = 0.5) %>% 
+  layout(title = "Max Temperatures vs Min Temperatures in New York from Year 2005 to 2010")
 ```
 
 Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart B
-
-```{r}
-Year = c(1981:2010)
-trace_1 = noaa %>% filter(month == 1) %>% group_by(month, year) %>% summarise(mean_temp = mean(tmax))
-trace_7 = noaa %>% filter(month == 7) %>% group_by(month, year) %>% summarise(mean_temp = mean(tmax))
-dt = data.frame(Year, trace_1, trace_7)
-plot_ly(dt, x = ~Year, y = ~trace_1$mean_temp, name = 'Janurary', type = 'scatter', mode = 'lines') %>% 
-  add_trace(y = ~trace_7$mean_temp, name = 'July', mode = 'lines+markers') %>% 
-  layout(title = "Average Max Temperatures for January and July in New York")
-```
-
-### Chart C
+Bar plots
 
 ```{r}
 noaa %>%
-  filter(year == 2009 & month == 1) %>% 
+  filter(year == 2010 & month == 2) %>% 
   group_by(day) %>% 
   select(day, snow, snwd) %>% 
   summarise(snow_mean = mean(snow),
@@ -79,5 +88,31 @@ noaa %>%
   plot_ly(x = ~day, y = ~snow_mean, type = "bar", name = "Snowfall") %>%
   add_trace(y = ~snwd_mean, name = "Snow depth") %>%
   layout(yaxis = list(title = 'mm'), barmode = 'stack') %>% 
-  layout(title = "Average Snowfall and Snowdepth for Jan 2009 in New York")
+  layout(title = "Average Snowfall and Snowdepth in Feb. 2010 in New York")
+```
+
+
+### Chart C
+Line plots:
+
+```{r}
+Year = c(2005:2010)
+
+Feb = 
+  noaa %>% 
+      filter(month == 2) %>% 
+      group_by(month, year) %>% 
+      summarise(mean_temp = mean(tmax))
+
+Aug = 
+  noaa %>% 
+    filter(month == 8) %>% 
+    group_by(month, year) %>% 
+    summarise(mean_temp = mean(tmax))
+
+df = data.frame(Year, Feb, Aug)
+
+plot_ly(df, x = ~Year, y = ~Feb$mean_temp, name = 'Feburary', type = 'scatter', mode = 'lines') %>% 
+  add_trace(y = ~Aug$mean_temp, name = 'August', mode = 'lines+markers') %>% 
+  layout(title = "Average Max Temperatures for Feburary and August in New York from 2005 to 2010")
 ```
