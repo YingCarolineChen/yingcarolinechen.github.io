@@ -1,25 +1,24 @@
 ---
-title: "My awesome website"
-output: 
+title: "This is Ying Chen"
+output:
   html_document:
-    toc: true
-    toc_float: true
+    includes:
+      in_header: cover.html
 ---
 
-# This is Ying's awesome website
 
-You can learn about me [here](about.html).
-
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
-
-# Let's add some links
+I am currently a Dr.PH student of [__Biostatistics__](https://www.mailman.columbia.edu/become-student/departments/biostatistics) in [Columbia University Mailman School of Public Health](https://www.mailman.columbia.edu/) and a research scientist at [New York State Psychiatric Institute](http://www.nyspi.org), [Department of Psychiatry](https://www.columbiapsychiatry.org).
 
 
-I often use [google](https://www.google.com) to do **data science**. 
+### <span style="color:#2C85C2; font-family: Babas; font-size: 1em;">Backgroud</span>
 
+I came to the United States on a business trip in 1997. I fell in love with Columbia University and stayed here since then. 
+I have a MD, a MS and a MA degree. 
 
-## let's add an image
+[Learn more about me...](resume.html)
 
-here's my cat:
+### <span style="color:#2C85C2; font-family: Babas; font-size: 1em;">Contact me</span>
 
-![](image/cat.jpg)
+Address: 1051 Riversie Drive, New York, NY, 10032
+
+Email: yc384@columbia.edu

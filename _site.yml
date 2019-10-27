@@ -1,20 +1,25 @@
-name: "Yay internet!"
+name: "Ying Chen"
 output_dir: "."
 navbar:
   title: "Home"
-  right:
+  left:
     - text: "About"
       href: about.html
-    - text: Examples
-      menu:
-      - text: "Plotly"
-        href: plotly.html
-      - text: "Dashboard"
-        href: dashboard.html
+    - text: "Resume"
+      icon: fa-user-circle-o
+      href: Resume.html
+    - text: "Plotly"
+      icon: fa-bar-chart
+      href: plotyly.html
+    - text: "Dashboard"
+      icon: fa-bar-chart
+      href: dashboard.html    
+  right:
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<yc384@columbia.edu>
     - icon: fa-github fa-lg
-      href: http://github.com/bst-p8105/
+      href: http://github.com/yingcarolinechen/
+
 output:
   html_document:
-    theme: journal
+    theme: cosmo

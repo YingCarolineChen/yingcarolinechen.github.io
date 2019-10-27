@@ -1,0 +1,26 @@
+---
+title: "Resume"
+author: "Ying Chen"
+date: "10/24/2019"
+output: html_document
+---
+
+
+> EDUCATION
+
+
+
+> RESEARCH EXPERIENCE
+
+
+
+
+
+> PROFESSIONAL EXPERIENCE
+
+
+> PUBLICATION
+
+
+> SKILLS
+
