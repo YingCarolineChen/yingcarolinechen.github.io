@@ -1,5 +1,5 @@
 ---
-title: "My first dashboard"
+title: "My First Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -14,7 +14,13 @@ library(p8105.datasets)
 library(plotly)
 ```
 
-```{r load_dataset}
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r load_dataset, echo=FALSE, warning = FALSE}
 set.seed(1)
 
 noaa = p8105.datasets::ny_noaa %>% 
@@ -27,27 +33,20 @@ noaa = p8105.datasets::ny_noaa %>%
          year = as.integer(year),
          month = as.integer(month),
          day = as.integer(day)) 
-```
 
-
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
-
-```{r ScatterPlot}
   noaa %>% filter(year == 2005:2010) %>% 
   plot_ly(x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
           color = ~year, alpha = 0.5) %>% 
   layout(title = "Max Temperatures vs Min Temperatures in New York from Year 2005 to 2010")
 ```
 
+
 Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart B
 
-```{r BarPlot}
+```{r BarPlot, echo=FALSE}
 noaa %>%
   filter(year == 2010 & month == 2) %>% 
   group_by(day) %>% 
@@ -63,7 +62,7 @@ noaa %>%
 
 ### Chart C
 
-```{r LinePlot}
+```{r LinePlot, echo=FALSE}
 Year = c(2005:2010)
 
 Feb = 
@@ -84,3 +83,4 @@ plot_ly(df, x = ~Year, y = ~Feb$mean_temp, name = 'Feburary', type = 'scatter', 
   add_trace(y = ~Aug$mean_temp, name = 'August', mode = 'lines+markers') %>% 
   layout(title = "Average Max Temperatures for Feburary and August in New York from 2005 to 2010")
 ```
+
