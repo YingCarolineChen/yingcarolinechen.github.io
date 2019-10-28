@@ -7,40 +7,16 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library(tidyverse)
-library (dplyr)
-library(p8105.datasets)
 library(flexdashboard)
+library(tidyverse)
 library(viridis)
+library(p8105.datasets)
 library(plotly)
-library(patchwork)
-
-
-rm(list = ls())
-
-knitr::opts_chunk$set(
-    echo = TRUE,
-    warning = FALSE,
-    fig.width = 10, 
-  fig.height = 8,
-  out.width = "100%"
-)
-
-scale_colour_discrete = scale_colour_viridis_d
-scale_fill_discrete = scale_fill_viridis_d
-
-options(
-  ggplot2.continuous.colour = "viridis",
-  ggplot2.continuous.fill = "viridis"
-)
-
-theme_set(theme_minimal() + theme(legend.position = "bottom"))
-
-options(tibble.print_min = 3)
 ```
 
 ```{r load_dataset}
 set.seed(1)
+
 noaa = p8105.datasets::ny_noaa %>% 
   janitor::clean_names() %>% 
   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
@@ -51,34 +27,27 @@ noaa = p8105.datasets::ny_noaa %>%
          year = as.integer(year),
          month = as.integer(month),
          day = as.integer(day)) 
-head(noaa,3)
 ```
-
 
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
-Scatter plot: 
 
-```{r}
-scatter_plot = noaa %>% 
-  filter(year == 2005:2010)
-
-scatter_plot %>% 
+```{r ScatterPlot}
+  noaa %>% filter(year == 2005:2010) %>% 
   plot_ly(x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
           color = ~year, alpha = 0.5) %>% 
   layout(title = "Max Temperatures vs Min Temperatures in New York from Year 2005 to 2010")
 ```
 
-Column {data-width=500}
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart B
-Bar plots
 
-```{r}
+```{r BarPlot}
 noaa %>%
   filter(year == 2010 & month == 2) %>% 
   group_by(day) %>% 
@@ -93,9 +62,8 @@ noaa %>%
 
 
 ### Chart C
-Line plots:
 
-```{r}
+```{r LinePlot}
 Year = c(2005:2010)
 
 Feb = 

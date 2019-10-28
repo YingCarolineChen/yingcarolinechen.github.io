@@ -8,9 +8,6 @@ navbar:
     - text: "Resume"
       icon: fa-user-circle-o
       href: Resume.html
-    - text: "Plotly"
-      icon: fa-bar-chart
-      href: plotyly.html
     - text: "Dashboard"
       icon: fa-bar-chart
       href: dashboard.html    
