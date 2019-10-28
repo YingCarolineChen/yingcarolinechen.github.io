@@ -56,7 +56,7 @@ noaa %>%
   plot_ly(x = ~day, y = ~snow_mean, type = "bar", name = "Snowfall") %>%
   add_trace(y = ~snwd_mean, name = "Snow depth") %>%
   layout(yaxis = list(title = 'mm'), barmode = 'stack') %>% 
-  layout(title = "Average Snowfall and Snowdepth in Feb. 2010 in New York")
+  layout(title = "NY: Average Snowfall & Snowdepth in Feb. 2010")
 ```
 
 
@@ -81,6 +81,6 @@ df = data.frame(Year, Feb, Aug)
 
 plot_ly(df, x = ~Year, y = ~Feb$mean_temp, name = 'Feburary', type = 'scatter', mode = 'lines') %>% 
   add_trace(y = ~Aug$mean_temp, name = 'August', mode = 'lines+markers') %>% 
-  layout(title = "Average Max Temperatures for Feburary and August in New York from 2005 to 2010")
+  layout(title = "NY 2005-2010 Mean Temperatures: Feb. vs Aug.")
 ```
 
