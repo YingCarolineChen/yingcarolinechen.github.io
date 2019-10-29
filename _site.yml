@@ -7,7 +7,7 @@ navbar:
       href: about.html
     - text: "CV"
       icon: fa-user-circle-o
-      href: Resume.html
+      href: CV.html
     - text: "Dashboard"
       icon: fa-bar-chart
       href: dashboard.html    
