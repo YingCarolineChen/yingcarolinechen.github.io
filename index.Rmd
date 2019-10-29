@@ -13,9 +13,9 @@ I am currently a Dr.PH student of [__Biostatistics__](https://www.mailman.columb
 ### <span style="color:#2C85C2; font-family: Babas; font-size: 1em;">Backgroud</span>
 
 I came to the United States on a business trip in 1997. I fell in love with Columbia University and stayed here since then. 
-I have a MD, a MS and a MA degree. 
+I have a MD, a MS and a MA degree. I am interested in applying cutting edge statistical methods to solve public health problems, especially in precision medicine and Psychiatry. 
 
-[Learn more about me...](resume.html)
+[Learn more about me...](CV.html)
 
 ### <span style="color:#2C85C2; font-family: Babas; font-size: 1em;">Contact me</span>
 
