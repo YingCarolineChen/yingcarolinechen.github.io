@@ -10,4 +10,4 @@
 
 This is a personal website for Ying Chen, M.D., MS, MA.
 
-Built in October 2019 for course [P8105-Data Science](http://p8105.com/). This class is taught by Dr. [Jeff Goldsmith](https://github.com/jeff-goldsmith). Jeff is an awesome professor in teaching Data Science and he has a cat named TED!
+Built in October 2019 for course [P8105-Data Science](http://p8105.com/). This class is taught by Dr. [Jeff Goldsmith](https://jeffgoldsmith.com/). Jeff is an awesome professor in teaching Data Science and he has a cat named TED!

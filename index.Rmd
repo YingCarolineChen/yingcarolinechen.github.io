@@ -1,11 +1,10 @@
 ---
 title: "This is Ying Chen's Awesome Website"
 output:
-  html_document:
-    includes:
-      in_header: cover.html
+  html_document
 ---
 <center><img src = "image/gwb.JPG" style = "width:100%"> </center>
+
 
 I am currently a Dr.PH student of [__Biostatistics__](https://www.mailman.columbia.edu/become-student/departments/biostatistics) in [Columbia University Mailman School of Public Health](https://www.mailman.columbia.edu/) and a research scientist at [New York State Psychiatric Institute](http://www.nyspi.org), [Department of Psychiatry](https://www.columbiapsychiatry.org).
 
