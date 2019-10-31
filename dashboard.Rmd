@@ -15,10 +15,12 @@ library(plotly)
 ```
 
 
+
 Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
+
 
 ```{r load_dataset, echo=FALSE, warning = FALSE}
 set.seed(1)
@@ -38,6 +40,7 @@ noaa = p8105.datasets::ny_noaa %>%
   plot_ly(x = ~tmax, y = ~tmin, type = "scatter", mode = "markers",
           color = ~year, alpha = 0.5) %>% 
   layout(title = "Max Temperatures vs Min Temperatures in New York from Year 2005 to 2010")
+  
 ```
 
 
@@ -45,6 +48,7 @@ Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart B
+
 
 ```{r BarPlot, echo=FALSE}
 noaa %>%
@@ -57,10 +61,12 @@ noaa %>%
   add_trace(y = ~snwd_mean, name = "Snow depth") %>%
   layout(yaxis = list(title = 'mm'), barmode = 'stack') %>% 
   layout(title = "NY: Average Snowfall & Snowdepth in Feb. 2010")
+
 ```
 
 
 ### Chart C
+
 
 ```{r LinePlot, echo=FALSE}
 Year = c(2005:2010)
@@ -82,5 +88,6 @@ df = data.frame(Year, Feb, Aug)
 plot_ly(df, x = ~Year, y = ~Feb$mean_temp, name = 'Feburary', type = 'scatter', mode = 'lines') %>% 
   add_trace(y = ~Aug$mean_temp, name = 'August', mode = 'lines+markers') %>% 
   layout(title = "NY 2005-2010 Mean Temperatures: Feb. vs Aug.")
+
 ```
 

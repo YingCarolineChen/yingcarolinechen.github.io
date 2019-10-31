@@ -10,7 +10,7 @@ navbar:
       href: dashboard.html    
   right:
     - icon: fa-envelope fa-lg
-      href: mailto:<yc384@columbia.edu>
+      href: mailto:<yc384@cumc.columbia.edu>
     - text: CV
       href: CV.html
     - icon: fa-github fa-lg
